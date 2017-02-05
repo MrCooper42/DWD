@@ -47,10 +47,12 @@ h5 {
   border: none;
   cursor:pointer;
   overflow: hidden;
-outline:none;
+  outline:none;
+  padding: 0;
+  border-radius: 25px;
 }
 
-#submitUser > img {
+#submitUser>img {
     visibility: visible;
 }
 
@@ -74,9 +76,8 @@ outline:none;
   position: relative;
 }
 
-::-webkit-validation-bubble {
-  color: red;
-  display: none;
+::-webkit-validation-bubble-message {
+  position: absolute;
 }
 
 .submitAnswer>p {
@@ -95,13 +96,11 @@ label>input {
 }
 
 label>input+img {
-    /* IMAGE STYLES */
     cursor: pointer;
     border: 2px solid transparent;
 }
 
 label>input:checked+img {
-    /* (RADIO CHECKED) IMAGE STYLES */
     border: 2px solid #f00;
     border-radius: 25%;
 }
