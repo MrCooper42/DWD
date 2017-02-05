@@ -1,0 +1,26 @@
+﻿General Programming in JAVA
+
+1. Give an example of Polymorphism in the programming language of your choice, then use that example to show how it could cause a runtime error.
+
+2. How many threads are too many?
+
+
+3. What is the difference between a Process and a Thread?
+
+4. How is an Actor different than a Thread?
+
+5. Why is Type Erasure good? Why is it bad?
+
+
+6. What are the advantages of using a dynamically typed language over a statically typed language? What are the downsides?
+
+7. What is Garbage Collection? What are its pros and cons?
+
+
+8. What is the difference between an interpreted script and a JIT script?
+
+
+
+Front End Coding - Open Readme.md
+
+Make a quiz web app using the json data provided.

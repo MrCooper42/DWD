@@ -1,0 +1,107 @@
+p {
+    font-family: "Overlock", cursive;
+    font-size: 1.42rem;
+}
+
+h1 {
+    font-family: 'VT323', monospace;
+    color: rgb(232, 142, 64);
+}
+
+h3 {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h5 {
+    font-family: 'AudioWide', cursive;
+    vertical-align: bottom !important;
+}
+
+.answer {
+    background-image: url("../assets/answer-unselected.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*padding: 0 5px 0 5px;*/
+    margin: 5px 0 5px 0;
+    border-radius: 25px;
+}
+
+.submitAnswer {
+    background-image: url("../assets/green-button.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 5px 0 5px 0;
+    border-radius: 25px;
+}
+
+.modal {
+    max-height: 100%;
+    top: 0px !important;
+}
+
+#submitUser  {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+outline:none;
+}
+
+#submitUser > img {
+    visibility: visible;
+}
+
+#yes {
+    max-height: 6em;
+    border-radius: 25px;
+}
+
+#accept {
+    max-height: 4.2em;
+    border-radius: 25px;
+}
+
+#decline {
+    max-height: 4.2em;
+    border-radius: 25px;
+}
+
+:invalid {
+  color: red;
+  position: relative;
+}
+
+::-webkit-validation-bubble {
+  color: red;
+  display: none;
+}
+
+.submitAnswer>p {
+    font-family: 'AudioWide', cursive;
+}
+
+container>.userPic {
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+}
+
+label>input {
+    visibility: hidden;
+    position: relative;
+}
+
+label>input+img {
+    /* IMAGE STYLES */
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+label>input:checked+img {
+    /* (RADIO CHECKED) IMAGE STYLES */
+    border: 2px solid #f00;
+    border-radius: 25%;
+}

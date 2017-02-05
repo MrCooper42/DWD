@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DWD Game Quiz</title>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|VT323|Overlock|Overlock+SC|Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container center">
+        <h1>DWD Game Quiz</h1>
+        <h5 class="question"></h5>
+        <hr />
+        <div class="row answers">
+        </div>
+        <div class="row">
+            <h5 class="col s12 m4" id="currScore"></h5>
+            <div class="col s12 m4 submitAnswer align-center hoverable">
+                <p>Submit</p>
+            </div>
+            <h5 class="col s12 m4" id="currentQuest"></h5>
+        </div>
+    </div>
+
+    <div id="modal1" class="modal" style="width:100%;height:100%;top:0px;">
+        <div class="modal-content center">
+            <h3>Welcome to the quiz!</h3>
+            <h5>Create a profile to start playing!</h5>
+            <form onSubmit='return onSubmit(this)' id="userForm" name="userForm">
+                <div class="container center hide-on-small-only">
+                    <label class="col m6 left boy">
+                  <input type="radio" name="boy" id="boy" class="userPic" value="boy" required/>
+                  <img src="../assets/user1.png">
+                </label>
+                    <label class="col m6 s12 right girl">
+                  <input type="radio" name="girl" id="girl" class="userPic" value="girl"/>
+                  <img src="../assets/user2.png">
+                </label>
+                </div>
+                <div class="container center hide-on-med-and-up">
+                    <label class="col s12 boy">
+                  <input type="radio" name="boy" id="boy" class="userPic" value="boy"/>
+                  <img src="../assets/user1.png">
+                </label>
+                    <label class="col s12 girl">
+                  <input type="radio" name="girl" id="girl" class="userPic" value="girl"/>
+                  <img src="../assets/user2.png">
+                </label>
+                </div>
+                <label for="username" class="center">Username: </label>
+                <input type="text" name="username" placeholder="Enter a username" required>
+                <h5>ARE YOU READY?!</h5>
+                <button type="submit" id="submitUser" hover>
+                    <img src="../assets/challenge-yes-button.png" class="hoverable" alt="" id="yes" />
+                </button>
+            </form>
+        </div>
+        <div class="modal-footer center">
+            <p>
+                Play without logging in
+            </p>
+            <a href="http://www.direwolfdigital.com/games">
+                <img src="../assets/challenge-decline-button.png" alt="" id="decline" class="hoverable" />
+            </a>
+            <img src="../assets/challenge-accept-button.png" alt="" class="modal-action modal-close hoverable" id="accept" />
+        </div>
+    </div>
+
+    <div id="modal2" class="modal" style="width:100%;height:100%;top:0px;">
+        <div class="modal-content center congrats">
+            <h3>You made it!</h3>
+            <p>Congratulations you have made it though the quiz! Would you like to play again?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" onclick="gameReset();">Agree</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="dwd_quiz.js"></script>
+</body>
+
+</html>
