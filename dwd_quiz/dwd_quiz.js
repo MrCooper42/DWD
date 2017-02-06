@@ -7,8 +7,8 @@ var currQuest = 0;
 
 ( function( ) {
   $( '#modal1' ).modal( );
-  $( '#modal1' ).modal( "open" );
   $( '#modal2' ).modal( );
+  $( '#modal1' ).modal( "open" );
   var getData = new Promise( function( resolve, reject ) {
     $.getJSON( "data.json", function( result ) {
       data = result[0].questions;
@@ -26,10 +26,8 @@ var currQuest = 0;
 
 function nextQuestion( currQuest ) {
   $( '.question' ).text( data[currQuest].question );
-  $( '#currentQuest' ).text( (currQuest + 1) + "/" + total );
-  $( '#currScore' ).text( correctQuest + "/" + total );
-
-  console.log( data, 'data' );
+  $( '#currentQuest' ).text("Question: " + (currQuest + 1) + "/" + total );
+  $( '#currScore' ).text("Score: " + correctQuest + "/" + total );
   total = data.length;
   var answers = data[currQuest].answers;
   shuffleArr( answers );
@@ -65,6 +63,8 @@ function removeLast( ) {
   $.each( $( '.answer' ), function( ) {
     $( this ).remove( )
   })
+  $('.fail').remove()
+  $('.success').remove()
 }
 
 function User(pic, name, played){
@@ -74,7 +74,10 @@ function User(pic, name, played){
 }
 
 function onSubmit( form ) {
-  var Users = localStorage.getItem("Users")
+  var Users = JSON.stringify(localStorage.getItem("Users"));
+  if (Users == null) {
+    Users = []
+  }
   var formData = $( "#userForm" ).serializeArray( )
   var name = formData[formData.length - 1].value
   var pic = formData[0].value;
@@ -83,37 +86,41 @@ function onSubmit( form ) {
   }
   var played = [];
   var newUser = new User(pic, name, played);
-  localStorage.setItem('Users', newUser);
-  console.log(newUser, "newUser");
-  console.log(Users, "Users");
+  // Users.push(JSON.stringify(newUser));
+  localStorage.setItem('Users', Users);
+  // console.log(JSON.stringify(newUser), "newUser");
   $( "#userForm" )[0].reset( );
   $( "#modal1" ).modal( "close" );
   return false;
 }
 
 function submitAnswer( ) {
-  var Users = localStorage.getItem("Users")
-  console.log(Users, "Users");
   if ( selected.score == undefined ) {
     Materialize.toast( 'Chose one to continue!', 3000, 'rounded' );
   } else if ( selected.score == 1 ) {
+    removeLast( );
+    $('.answers').append('<img class="fail center" src="../assets/correct.png" alt="" />')
     correctQuest++;
     currQuest++;
   } else if ( selected.score == 0 ) {
+    removeLast( );
+    $('.answers').append('<img class="success center" src="../assets/incorrect.png" alt="" />')
     currQuest++;
   }
   if ( currQuest == total) {
     endGame();
   }
-  removeLast( )
   selected.score = undefined;
-  nextQuestion( currQuest )
+  setTimeout(function() {
+    removeLast();
+    nextQuestion( currQuest );
+  }, 2000);
 }
 
 function endGame( ) {
-  correctQuest = 0;
-  currQuest = 0;
   var finalScore = correctQuest + "/" + total
   $( "#modal2" ).modal( "open" );
   $(".congrats").append("<h1>" + finalScore + "</h1>")
+  correctQuest = 0;
+  currQuest = 0;
 }

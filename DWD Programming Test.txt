@@ -1,23 +1,84 @@
-﻿General Programming in JAVA
+General Programming in JAVA
 
 1. Give an example of Polymorphism in the programming language of your choice, then use that example to show how it could cause a runtime error.
 
+C# (dynamic) Polymorphism
+``
+namespace Man
+{
+    class BaseClass
+    {
+        public virtual void MyMethod()   // Virtual method; Gives runtime error if you remove this method
+        {
+            Console.WriteLine("This is the Base Class");
+        }
+    }
+
+    class DerivedClass : BaseClass
+    {
+        public override void MyMethod()  // Overriding virtual method
+        {
+            Console.WriteLine("This is the Derived Class");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            BaseClass msg = new BaseClass();
+            msg.MyMethod();                    // This will call the BaseClass method
+
+            msg = new DerivedClass();
+            msg.MyMethod();                    // This will call the DerivedClass method
+        }
+    }
+}
+```
+
 2. How many threads are too many?
 
+I believe the best answer is that it depends, and should be measured.
+first the question is what it is being used for, is it a long calculation or a quick script?
+next you have to determine if it is cpu-bound, io-bound, or even memory bound.
+If it is io-bound then it makes more sense to have more, more threads per core,
+cpu-bound it makes sense to send 1 thread per core. If you introduce more, then there is extra overhead to manage the threads.
 
 3. What is the difference between a Process and a Thread?
 
+Processes have their own state and resources and executions. Threads are multiple executions in a single process that have shared access to the process state,
+and has a stack for calls in shared memory.
+
 4. How is an Actor different than a Thread?
+
+Actors have shared memory locations but work like encapsulation for threads and can execute in parallel / asynchronously.
+Threads have shared states as where actors only get to view their own.
 
 5. Why is Type Erasure good? Why is it bad?
 
+Having mainly worked in JavaScript Generics is a concept I am less familiar with,
+But from what I can tell it is good because it helps java compile using type safety and type casting,
+and it also helps preserve polymorphism. Also it helps the JVM read it.
+
+On the bad side when the generics are removed after compilation,
+it can make type-related features weakened my restrictions of the runtime environment
 
 6. What are the advantages of using a dynamically typed language over a statically typed language? What are the downsides?
 
+In the static typed world lots of people believe that if a program would fail they would prefer for it to fail at compile time, not runtime.
+Dynamic typed system are nice because a lot can be interpreted for the user, meaning the program can do things in ways I couldn't think of.
+Which is both a pro and a con, so to me the big advantages for each are: static it does exactly what you tell it, dynamic, there are more 'artistic freedoms'
+
 7. What is Garbage Collection? What are its pros and cons?
 
+Garbage collection is what allocates and deallocates memory for things like variables or functions.
+This is mostly a pros situation in my eyes because it takes a lot of the extra overhead work off the person coding. This helps prevent memory leaks, but the con is the user can't control when the garbage collection is going to happen.
 
 8. What is the difference between an interpreted script and a JIT script?
+
+An interpreted script doesn't get compiled at all and is run through an interpreter that reads the code and translates it as needed.
+JIT scripts are a hybridization of compiled and interpreted, and are compiled at runtime.
+With JIT it IS compiled but it only compiles the code for the first time of what is being called on.
 
 
 

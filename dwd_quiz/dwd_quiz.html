@@ -75,10 +75,23 @@
             <h3>You made it!</h3>
             <p>Congratulations you have made it though the quiz! Would you like to play again?</p>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" onclick="gameReset();">Agree</a>
+        <div class="modal-footer center">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green" onclick="gameReset();">
+              <img src="../assets/play-again-green.png" alt="" class="modal-action modal-close hoverable" id="again"/>
+            </a>
+            <br>
+            <a href="http://www.direwolfdigital.com/games">
+              <img src="../assets/challenge-decline-button.png" alt="" id="decline" class="hoverable" />
+            </a>
         </div>
     </div>
+    <!--
+        <div class="success center col 12">
+            <img src="../assets/correct.png" alt="" />
+        </div>
+        <div class="fail center col 12">
+            <img src="../assets/incorrect.png" alt="" />
+        </div> -->
 
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
