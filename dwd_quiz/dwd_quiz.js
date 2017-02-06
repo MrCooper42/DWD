@@ -74,21 +74,26 @@ function User(pic, name, played){
 }
 
 function onSubmit( form ) {
+  var Users = localStorage.getItem("Users")
   var formData = $( "#userForm" ).serializeArray( )
-  var name = formData[formData.length - 1]
-  var pic = formData[0];
+  var name = formData[formData.length - 1].value
+  var pic = formData[0].value;
   if (formData.length > 2) {
-    pic = formData[Math.floor(Math.random() * 2)];
+    pic = formData[Math.floor(Math.random() * 2)].value;
   }
   var played = [];
   var newUser = new User(pic, name, played);
+  localStorage.setItem('Users', newUser);
   console.log(newUser, "newUser");
-  $( "#userForm" )[0].reset( )
-  $( "#modal1" ).modal( "close" )
+  console.log(Users, "Users");
+  $( "#userForm" )[0].reset( );
+  $( "#modal1" ).modal( "close" );
   return false;
 }
 
 function submitAnswer( ) {
+  var Users = localStorage.getItem("Users")
+  console.log(Users, "Users");
   if ( selected.score == undefined ) {
     Materialize.toast( 'Chose one to continue!', 3000, 'rounded' );
   } else if ( selected.score == 1 ) {
