@@ -40,9 +40,9 @@ function nextQuestion( currQuest ) {
       }
       $.each( $( '.answer' ), function( ) {
         if ( this.id == selected.id ) {
-          $( this ).css( 'background-image', "url(../assets/answer-selected.png)" );
+          $( this ).css( 'background-image', "url(./assets/answer-selected.png)" );
         } else {
-          $( this ).css( 'background-image', "url(../assets/answer-unselected.png)" );
+          $( this ).css( 'background-image', "url(./assets/answer-unselected.png)" );
         }
       })
     }))
@@ -99,12 +99,12 @@ function submitAnswer( ) {
     Materialize.toast( 'Chose one to continue!', 3000, 'rounded' );
   } else if ( selected.score == 1 ) {
     removeLast( );
-    $('.answers').append('<img class="fail center" src="../assets/correct.png" alt="" />')
+    $('.answers').append('<img class="fail center" src="./assets/correct.png" alt="" />')
     correctQuest++;
     currQuest++;
   } else if ( selected.score == 0 ) {
     removeLast( );
-    $('.answers').append('<img class="success center" src="../assets/incorrect.png" alt="" />')
+    $('.answers').append('<img class="success center" src="./assets/incorrect.png" alt="" />')
     currQuest++;
   }
   if ( currQuest == total) {

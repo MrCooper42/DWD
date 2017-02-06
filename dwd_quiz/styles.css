@@ -18,7 +18,7 @@ h5 {
 }
 
 .answer {
-    background-image: url("../assets/answer-unselected.png");
+    background-image: url("./assets/answer-unselected.png");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,7 +28,7 @@ h5 {
 }
 
 .submitAnswer {
-    background-image: url("../assets/green-button.png");
+    background-image: url("./assets/green-button.png");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
